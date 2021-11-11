@@ -11,6 +11,10 @@ Route::prefix('san-pham')->group(function(){
     // localhost:8000/admin/san-pham/remove/12
     Route::get('remove/{id}', [ProductController::class, 'remove'])
     ->name('product.remove');
+
+    Route::get('add', [ProductController::class, 'addForm'])->name('product.add');
+    Route::post('add', [ProductController::class, 'saveAdd']);
+
 });
 
 Route::resource("users", UserController::class);

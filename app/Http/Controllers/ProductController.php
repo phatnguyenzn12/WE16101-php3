@@ -22,7 +22,6 @@ class ProductController extends Controller
             'desc' => 'Giảm dần'
         ];
 
-
         $keyword = $request->has('keyword') ? $request->keyword : "";
         $cate_id = $request->has('cate_id') ? $request->cate_id : "";
         $rq_order_by = $request->has('order_by') ? $request->order_by : 'asc';
@@ -53,5 +52,10 @@ class ProductController extends Controller
     public function remove($id){
         Product::destroy($id);
         return redirect(route('product.index'));
+    }
+
+    public function addForm(){
+        $categories = Category::all();
+        return view('products.add', compact('categories'));
     }
 }
