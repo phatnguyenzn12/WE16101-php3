@@ -47,7 +47,7 @@
     <tbody>
         @foreach ($products as $item)
             <tr>
-                <td>{{$loop->iteration}}</td>
+                <td>{{($products->currentPage() - 1)*$products->perPage() + $loop->iteration}}</td>
                 <td>{{$item->name}}</td>
                 <td>{{$item->price}}</td>
                 <td>{{$item->cate_id}}</td>
