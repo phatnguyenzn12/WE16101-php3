@@ -40,6 +40,9 @@ class ProductController extends Controller
             $query->where('cate_id', $cate_id);
         }
         $products = $query->paginate($pageSize);
+        // giữ lại các giá trị đang tìm kiếm trong link phần trang
+        $products->appends($request->input());
+
         $categories = Category::all();
         $searchData = compact('keyword', 'cate_id');
         $searchData['order_by'] = $rq_order_by;

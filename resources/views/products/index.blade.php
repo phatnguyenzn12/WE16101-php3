@@ -59,7 +59,7 @@
         @endforeach
         <tr>
             <td colspan="5">
-                {{$products->links()}}
+                {{$products->onEachSide(1)->links()}}
             </td>
         </tr>
     </tbody>
