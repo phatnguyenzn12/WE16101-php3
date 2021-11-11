@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class ProductController extends Controller
 {
     public function index(Request $request){
-        
+        $pageSize = 10;
         $column_names = [
             'name' => 'Tên sản phẩm',
             'price' => 'Giá',
@@ -39,9 +39,11 @@ class ProductController extends Controller
         if(!empty($cate_id)){
             $query->where('cate_id', $cate_id);
         }
-        $products = $query->get();
+        $products = $query->paginate($pageSize);
         $categories = Category::all();
-        $searchData = $request->input();
+        $searchData = compact('keyword', 'cate_id');
+        $searchData['order_by'] = $rq_order_by;
+        $searchData['column_names'] = $rq_column_names;
         return view('products.index', compact('products', 'categories', 'column_names', 'order_by', 'searchData'));
     }
 
