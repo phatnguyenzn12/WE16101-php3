@@ -58,4 +58,11 @@ class ProductController extends Controller
         $categories = Category::all();
         return view('products.add', compact('categories'));
     }
+
+    public function saveAdd(Request $request){
+        $model = new Product();
+        $model->fill($request->all());
+        $model->save();
+        return redirect(route('product.index'));
+    }
 }

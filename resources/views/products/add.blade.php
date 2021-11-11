@@ -2,6 +2,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 <div class="container">
     <form action="" method="post">
+        @csrf
         <div class="row">
             <div class="col-6">
                 <div class="form-group">
@@ -11,6 +12,10 @@
                 <div class="form-group">
                     <label for="">Ảnh</label>
                     <input type="file" name="image" class="form-control" placeholder="">
+                </div>
+                <div class="form-group">
+                    <label for="">Số lượng:</label>
+                    <input type="text" name="quantity" class="form-control" placeholder="">
                 </div>
             </div>
             <div class="col-6">
@@ -26,12 +31,9 @@
                     <label for="">Gía</label>
                     <input type="text" name="price" class="form-control" placeholder="">
                 </div>
+                
             </div>
-            <div class="col-12 mb-4">
-                <div class="form-group">
-                  <label for="">Mô tả ngắn:</label>
-                  <textarea name="short_desc" rows="5" class="form-control"></textarea>
-                </div>
+            <div class="col-12 mb-4">                
                 <div class="form-group">
                     <label for="">Chi tiết:</label>
                     <textarea name="detail" rows="10" class="form-control"></textarea>
