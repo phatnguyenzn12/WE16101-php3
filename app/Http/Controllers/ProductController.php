@@ -40,11 +40,9 @@ class ProductController extends Controller
             $query->where('cate_id', $cate_id);
         }
         $products = $query->get();
-
         $categories = Category::all();
-        
-        
-        return view('products.index', compact('products', 'categories', 'column_names', 'order_by'));
+        $searchData = $request->input();
+        return view('products.index', compact('products', 'categories', 'column_names', 'order_by', 'searchData'));
     }
 
     public function remove($id){
