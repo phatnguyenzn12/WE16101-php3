@@ -74,4 +74,15 @@ class ProductController extends Controller
         $categories = Category::all();
         return view('products.edit', compact('model', 'categories'));
     }
+
+    public function saveEdit(Request $request, $id){
+        // dd($request->name);
+        $model = Product::find($id);
+        if(!$model){
+            return back();
+        }
+        $model->fill($request->all());
+        $model->save();
+        return redirect(route('product.index'));
+    }
 }

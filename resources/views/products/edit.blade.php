@@ -23,7 +23,7 @@
                     <label for="">Danh mục</label>
                     <select name="cate_id" class="form-control">
                         @foreach ($categories as $item)
-                            <option @if($item->id == $model->id) selected @endif value="{{$item->id}}">{{$item->name}}</option>
+                            <option @if($item->id == $model->cate_id) selected @endif value="{{$item->id}}">{{$item->name}}</option>
                         @endforeach
                     </select>
                 </div>
