@@ -15,6 +15,9 @@ Route::prefix('san-pham')->group(function(){
     Route::get('add', [ProductController::class, 'addForm'])->name('product.add');
     Route::post('add', [ProductController::class, 'saveAdd']);
 
+    Route::get('edit/{id}', [ProductController::class, 'editForm'])->name('product.edit');
+    Route::post('edit/{id}', [ProductController::class, 'saveEdit']);
+
 });
 
 Route::resource("users", UserController::class);

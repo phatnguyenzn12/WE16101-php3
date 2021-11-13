@@ -52,7 +52,7 @@
                 <td>{{$item->price}}</td>
                 <td>{{$item->cate_id}}</td>
                 <td>
-                    <a href="">Edit</a>
+                    <a href="{{route('product.edit', ['id' => $item->id])}}">Edit</a>
                     <a href="{{route('product.remove', ['id' => $item->id])}}">Remove</a>
                 </td>
             </tr>

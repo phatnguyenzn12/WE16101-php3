@@ -65,4 +65,13 @@ class ProductController extends Controller
         $model->save();
         return redirect(route('product.index'));
     }
+
+    public function editForm($id){
+        $model = Product::find($id);
+        if(!$model){
+            return back();
+        }
+        $categories = Category::all();
+        return view('products.edit', compact('model', 'categories'));
+    }
 }
