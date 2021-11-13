@@ -85,4 +85,6 @@ class ProductController extends Controller
         $model->save();
         return redirect(route('product.index'));
     }
+
+    // tự làm thêm/sửa/xóa cho phần danh mục "categories"
 }
