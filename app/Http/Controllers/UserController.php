@@ -13,4 +13,13 @@ class UserController extends Controller
             'users' => $users
         ]);
     }
+
+    public function show($id)
+    {
+        $user = User::find($id);
+        if($user->role_id == 1){
+            dd($user->customer_info);
+        }
+        dd($user->staff_info);
+    }
 }

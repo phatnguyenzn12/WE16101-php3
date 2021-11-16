@@ -11,7 +11,7 @@
  Target Server Version : 80025
  File Encoding         : 65001
 
- Date: 13/11/2021 12:46:51
+ Date: 16/11/2021 13:42:37
 */
 
 SET NAMES utf8mb4;
@@ -40,6 +40,29 @@ INSERT INTO `categories` VALUES (3, 'Thịt lợn', NULL, NULL);
 INSERT INTO `categories` VALUES (4, 'Thịt bò', NULL, NULL);
 INSERT INTO `categories` VALUES (5, 'Rau', NULL, NULL);
 INSERT INTO `categories` VALUES (6, 'Gia vị', NULL, NULL);
+COMMIT;
+
+-- ----------------------------
+-- Table structure for customer_info
+-- ----------------------------
+DROP TABLE IF EXISTS `customer_info`;
+CREATE TABLE `customer_info` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `address` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `user_id` int DEFAULT NULL,
+  `joined_date` datetime DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ----------------------------
+-- Records of customer_info
+-- ----------------------------
+BEGIN;
+INSERT INTO `customer_info` VALUES (1, 'ha noi', 3, '2021-11-03 13:25:34', NULL, NULL);
+INSERT INTO `customer_info` VALUES (2, 'nam dinh', 4, '2021-11-19 13:25:44', NULL, NULL);
+INSERT INTO `customer_info` VALUES (3, 'ha nam', 5, '2021-11-01 13:25:56', NULL, NULL);
 COMMIT;
 
 -- ----------------------------
@@ -146,7 +169,7 @@ CREATE TABLE `products` (
   `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `quantity` int DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=102 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=103 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of products
@@ -172,7 +195,6 @@ INSERT INTO `products` VALUES (17, 'Chad Brekke', 7079, '2021-11-04 06:54:31', '
 INSERT INTO `products` VALUES (18, 'Kenton Bradtke', 1280, '2021-11-04 06:54:31', '2021-11-04 06:54:31', 3, 'I can do no more, whatever happens. What WILL become of it; so, after hunting all about for a minute or two, and the little door: but, alas! either the locks were too large, or the key was lying on.', '', 45);
 INSERT INTO `products` VALUES (40, 'Charley Legros', 3023, '2021-11-04 06:54:31', '2021-11-04 06:54:31', 6, 'March Hare said in a deep, hollow tone: \'sit down, both of you, and don\'t speak a word till I\'ve finished.\' So they sat down, and the other queer noises, would change to tinkling sheep-bells, and.', '', 63);
 INSERT INTO `products` VALUES (41, 'Esta Lang', 3287, '2021-11-04 06:54:31', '2021-11-04 06:54:31', 6, 'Alice had got to the fifth bend, I think?\' \'I had NOT!\' cried the Gryphon, before Alice could see it trot away quietly into the garden, where Alice could think of what sort it was) scratching and.', '', 59);
-INSERT INTO `products` VALUES (42, 'Aida Stokes', 7189, '2021-11-04 06:54:31', '2021-11-04 06:54:31', 2, 'You gave us three or more; They all sat down in a tone of great curiosity. \'It\'s a mineral, I THINK,\' said Alice. \'Off with his head!\' she said, by way of escape, and wondering whether she could not.', '', 23);
 INSERT INTO `products` VALUES (43, 'Yasmin Littel', 1429, '2021-11-04 06:54:31', '2021-11-04 06:54:31', 2, 'Rabbit asked. \'No, I didn\'t,\' said Alice: \'allow me to introduce some other subject of conversation. While she was coming to, but it makes rather a hard word, I will just explain to you to get out.', '', 41);
 INSERT INTO `products` VALUES (44, 'Mrs. Viola Wisoky II', 3872, '2021-11-04 06:54:31', '2021-11-04 06:54:31', 6, 'Queen in a moment: she looked down at them, and just as usual. I wonder who will put on one knee as he could think of nothing better to say when I get it home?\' when it saw Alice. It looked.', '', 26);
 INSERT INTO `products` VALUES (45, 'Cary Cruickshank', 2808, '2021-11-04 06:54:31', '2021-11-04 06:54:31', 1, 'I am very tired of being all alone here!\' As she said to the garden door. Poor Alice! It was the Hatter. \'You MUST remember,\' remarked the King, and the little golden key in the pool, and the King.', '', 46);
@@ -229,6 +251,30 @@ INSERT INTO `products` VALUES (98, 'Prof. Sigrid Huels V', 7168, '2021-11-04 06:
 INSERT INTO `products` VALUES (99, 'Dr. Fatima Maggio Jr.', 6101, '2021-11-04 06:54:31', '2021-11-04 06:54:31', 5, 'And so it was perfectly round, she found herself at last came a rumbling of little animals and birds waiting outside. The poor little juror (it was exactly three inches high). \'But I\'m NOT a.', '', 52);
 INSERT INTO `products` VALUES (100, 'Prof. Gerard Hoppe DDS', 4803, '2021-11-04 06:54:31', '2021-11-04 06:54:31', 2, 'I do it again and again.\' \'You are old,\' said the Mock Turtle replied; \'and then the different branches of Arithmetic--Ambition, Distraction, Uglification, and Derision.\' \'I never went to him,\' said.', '', 26);
 INSERT INTO `products` VALUES (101, 'san pham 1', 10000, '2021-11-11 06:49:05', '2021-11-11 06:49:05', 4, 'adsfasfasfasfasdfasdf', NULL, 100);
+INSERT INTO `products` VALUES (102, 'sp test 1', 1000, '2021-11-16 05:35:28', '2021-11-16 05:35:28', 4, 'Trong phát biểu mở đầu, Tổng thống Mỹ cho rằng cần các \"rào chắn\" để đảm bảo cạnh tranh giữa hai nước không trở thành xung đột, bất kể chủ ý hay ngoài ý muốn. Ông đồng thời bày tỏ lãnh đạo hai nền kinh tế lớn nhất thế giới sẽ có \"cuộc thảo luận thẳng thắn\".', 'storage/products/GBswaoK3avmtZ6G2zWwwgUbrv9pO4vccqjWu08eX.jpg', 100);
+COMMIT;
+
+-- ----------------------------
+-- Table structure for staff_info
+-- ----------------------------
+DROP TABLE IF EXISTS `staff_info`;
+CREATE TABLE `staff_info` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `identity_card_number` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `user_id` int DEFAULT NULL,
+  `salary` int DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ----------------------------
+-- Records of staff_info
+-- ----------------------------
+BEGIN;
+INSERT INTO `staff_info` VALUES (1, '098765432234', 1, 1000, NULL, NULL);
+INSERT INTO `staff_info` VALUES (2, '567890312123', 2, 2000, NULL, NULL);
+INSERT INTO `staff_info` VALUES (3, '6789023212342', 3, 2500, NULL, NULL);
 COMMIT;
 
 -- ----------------------------
@@ -240,6 +286,7 @@ CREATE TABLE `users` (
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
+  `role_id` int DEFAULT '1',
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -252,36 +299,36 @@ CREATE TABLE `users` (
 -- Records of users
 -- ----------------------------
 BEGIN;
-INSERT INTO `users` VALUES (1, 'Lane Murphy Jr.', 'fatima08@example.org', '2021-11-04 06:54:31', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'YcC8urCPIe', '2021-11-04 06:54:31', '2021-11-04 06:54:31');
-INSERT INTO `users` VALUES (2, 'Mr. Dudley Murazik V', 'sydni.okuneva@example.net', '2021-11-04 06:54:31', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'iShUNITjF0', '2021-11-04 06:54:31', '2021-11-04 06:54:31');
-INSERT INTO `users` VALUES (3, 'Daija Carter IV', 'florine76@example.com', '2021-11-04 06:54:31', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'IVoZ4fHkcS', '2021-11-04 06:54:31', '2021-11-04 06:54:31');
-INSERT INTO `users` VALUES (4, 'Wilford Runte', 'padberg.alyce@example.com', '2021-11-04 06:54:31', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'NMvm22Wh9k', '2021-11-04 06:54:31', '2021-11-04 06:54:31');
-INSERT INTO `users` VALUES (5, 'Mrs. Alexa Durgan Sr.', 'bschumm@example.net', '2021-11-04 06:54:31', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'Eg1x4Mjrsn', '2021-11-04 06:54:31', '2021-11-04 06:54:31');
-INSERT INTO `users` VALUES (6, 'Aric Powlowski IV', 'feil.lelah@example.net', '2021-11-04 06:54:31', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', '1umgS7bXAn', '2021-11-04 06:54:31', '2021-11-04 06:54:31');
-INSERT INTO `users` VALUES (7, 'Walter Dach', 'trycia.kiehn@example.net', '2021-11-04 06:54:31', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', '6LK4HzPr9H', '2021-11-04 06:54:31', '2021-11-04 06:54:31');
-INSERT INTO `users` VALUES (8, 'Ms. Chloe Rice DVM', 'olarkin@example.org', '2021-11-04 06:54:31', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', '9uNIe5PWx2', '2021-11-04 06:54:31', '2021-11-04 06:54:31');
-INSERT INTO `users` VALUES (9, 'Jalen Goodwin', 'senger.humberto@example.org', '2021-11-04 06:54:31', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'ECNykgCu33', '2021-11-04 06:54:31', '2021-11-04 06:54:31');
-INSERT INTO `users` VALUES (10, 'Miss April Rolfson', 'haylee60@example.net', '2021-11-04 06:54:31', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'YkO9C9YeS5', '2021-11-04 06:54:31', '2021-11-04 06:54:31');
-INSERT INTO `users` VALUES (11, 'Isidro Bradtke', 'wilhelm.jaskolski@example.com', '2021-11-06 05:34:17', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'V4zaOCEcuS', '2021-11-06 05:34:17', '2021-11-06 05:34:17');
-INSERT INTO `users` VALUES (12, 'Monte Hoeger', 'elenora85@example.org', '2021-11-06 05:34:17', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'pOec1iiWrd', '2021-11-06 05:34:17', '2021-11-06 05:34:17');
-INSERT INTO `users` VALUES (13, 'Alexandre Connelly', 'pfannerstill.filomena@example.com', '2021-11-06 05:34:17', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'SnRkBTKLEy', '2021-11-06 05:34:17', '2021-11-06 05:34:17');
-INSERT INTO `users` VALUES (14, 'Janet Bradtke', 'olson.bradford@example.com', '2021-11-06 05:34:17', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'TtXtS2LrhM', '2021-11-06 05:34:17', '2021-11-06 05:34:17');
-INSERT INTO `users` VALUES (15, 'Berta Kilback', 'sawayn.natalie@example.com', '2021-11-06 05:34:17', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'u2QdLhRkTe', '2021-11-06 05:34:17', '2021-11-06 05:34:17');
-INSERT INTO `users` VALUES (16, 'Keara Bogan', 'wdenesik@example.com', '2021-11-06 05:34:17', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'UaI3DjNt9I', '2021-11-06 05:34:17', '2021-11-06 05:34:17');
-INSERT INTO `users` VALUES (17, 'Beth Stehr', 'macejkovic.mohamed@example.com', '2021-11-06 05:34:17', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'NaaTgbBG3S', '2021-11-06 05:34:17', '2021-11-06 05:34:17');
-INSERT INTO `users` VALUES (18, 'Bernardo Beatty', 'buster30@example.com', '2021-11-06 05:34:17', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'FunczKezTe', '2021-11-06 05:34:17', '2021-11-06 05:34:17');
-INSERT INTO `users` VALUES (19, 'Arch Baumbach', 'jacky32@example.com', '2021-11-06 05:34:17', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', '8RbvIoBoQQ', '2021-11-06 05:34:17', '2021-11-06 05:34:17');
-INSERT INTO `users` VALUES (20, 'Mr. Tomas Swift I', 'sboyer@example.org', '2021-11-06 05:34:17', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'zglB8jVZ0X', '2021-11-06 05:34:17', '2021-11-06 05:34:17');
-INSERT INTO `users` VALUES (21, 'Garrick Bergnaum', 'ghammes@example.org', '2021-11-06 05:34:17', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'kvfI9mGL4A', '2021-11-06 05:34:17', '2021-11-06 05:34:17');
-INSERT INTO `users` VALUES (22, 'Kirsten Nader', 'edgar.keebler@example.org', '2021-11-06 05:34:17', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'AjuWY5eFOg', '2021-11-06 05:34:17', '2021-11-06 05:34:17');
-INSERT INTO `users` VALUES (23, 'Dr. Major Watsica', 'ward66@example.org', '2021-11-06 05:34:17', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'mPTNpgvdX1', '2021-11-06 05:34:17', '2021-11-06 05:34:17');
-INSERT INTO `users` VALUES (24, 'Dr. Odie Feeney II', 'emile04@example.org', '2021-11-06 05:34:17', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'OwDsn0uYBw', '2021-11-06 05:34:17', '2021-11-06 05:34:17');
-INSERT INTO `users` VALUES (25, 'Jammie Rogahn', 'pierce05@example.com', '2021-11-06 05:34:17', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'BVRacyWoUU', '2021-11-06 05:34:17', '2021-11-06 05:34:17');
-INSERT INTO `users` VALUES (26, 'Gerda Adams', 'agustina.nienow@example.org', '2021-11-06 05:34:17', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'DILswTWQaE', '2021-11-06 05:34:17', '2021-11-06 05:34:17');
-INSERT INTO `users` VALUES (27, 'Izaiah Schimmel', 'trycia.parisian@example.org', '2021-11-06 05:34:17', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'o2KevBEE7B', '2021-11-06 05:34:17', '2021-11-06 05:34:17');
-INSERT INTO `users` VALUES (28, 'Nikolas Gaylord', 'lacy.beahan@example.com', '2021-11-06 05:34:17', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'AMcwFmSSln', '2021-11-06 05:34:17', '2021-11-06 05:34:17');
-INSERT INTO `users` VALUES (29, 'Prof. Geraldine Rutherford I', 'monahan.eden@example.net', '2021-11-06 05:34:17', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'QWjrt9Dg0F', '2021-11-06 05:34:17', '2021-11-06 05:34:17');
-INSERT INTO `users` VALUES (30, 'Prof. Guadalupe Murphy PhD', 'hartmann.davonte@example.org', '2021-11-06 05:34:17', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'BZEY4GItpw', '2021-11-06 05:34:17', '2021-11-06 05:34:17');
+INSERT INTO `users` VALUES (1, 'Lane Murphy Jr.', 'fatima08@example.org', '2021-11-04 06:54:31', 2, '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'YcC8urCPIe', '2021-11-04 06:54:31', '2021-11-04 06:54:31');
+INSERT INTO `users` VALUES (2, 'Mr. Dudley Murazik V', 'sydni.okuneva@example.net', '2021-11-04 06:54:31', 2, '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'iShUNITjF0', '2021-11-04 06:54:31', '2021-11-04 06:54:31');
+INSERT INTO `users` VALUES (3, 'Daija Carter IV', 'florine76@example.com', '2021-11-04 06:54:31', 2, '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'IVoZ4fHkcS', '2021-11-04 06:54:31', '2021-11-04 06:54:31');
+INSERT INTO `users` VALUES (4, 'Wilford Runte', 'padberg.alyce@example.com', '2021-11-04 06:54:31', 1, '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'NMvm22Wh9k', '2021-11-04 06:54:31', '2021-11-04 06:54:31');
+INSERT INTO `users` VALUES (5, 'Mrs. Alexa Durgan Sr.', 'bschumm@example.net', '2021-11-04 06:54:31', 1, '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'Eg1x4Mjrsn', '2021-11-04 06:54:31', '2021-11-04 06:54:31');
+INSERT INTO `users` VALUES (6, 'Aric Powlowski IV', 'feil.lelah@example.net', '2021-11-04 06:54:31', 1, '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', '1umgS7bXAn', '2021-11-04 06:54:31', '2021-11-04 06:54:31');
+INSERT INTO `users` VALUES (7, 'Walter Dach', 'trycia.kiehn@example.net', '2021-11-04 06:54:31', 1, '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', '6LK4HzPr9H', '2021-11-04 06:54:31', '2021-11-04 06:54:31');
+INSERT INTO `users` VALUES (8, 'Ms. Chloe Rice DVM', 'olarkin@example.org', '2021-11-04 06:54:31', 1, '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', '9uNIe5PWx2', '2021-11-04 06:54:31', '2021-11-04 06:54:31');
+INSERT INTO `users` VALUES (9, 'Jalen Goodwin', 'senger.humberto@example.org', '2021-11-04 06:54:31', 1, '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'ECNykgCu33', '2021-11-04 06:54:31', '2021-11-04 06:54:31');
+INSERT INTO `users` VALUES (10, 'Miss April Rolfson', 'haylee60@example.net', '2021-11-04 06:54:31', 1, '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'YkO9C9YeS5', '2021-11-04 06:54:31', '2021-11-04 06:54:31');
+INSERT INTO `users` VALUES (11, 'Isidro Bradtke', 'wilhelm.jaskolski@example.com', '2021-11-06 05:34:17', 1, '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'V4zaOCEcuS', '2021-11-06 05:34:17', '2021-11-06 05:34:17');
+INSERT INTO `users` VALUES (12, 'Monte Hoeger', 'elenora85@example.org', '2021-11-06 05:34:17', 1, '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'pOec1iiWrd', '2021-11-06 05:34:17', '2021-11-06 05:34:17');
+INSERT INTO `users` VALUES (13, 'Alexandre Connelly', 'pfannerstill.filomena@example.com', '2021-11-06 05:34:17', 1, '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'SnRkBTKLEy', '2021-11-06 05:34:17', '2021-11-06 05:34:17');
+INSERT INTO `users` VALUES (14, 'Janet Bradtke', 'olson.bradford@example.com', '2021-11-06 05:34:17', 1, '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'TtXtS2LrhM', '2021-11-06 05:34:17', '2021-11-06 05:34:17');
+INSERT INTO `users` VALUES (15, 'Berta Kilback', 'sawayn.natalie@example.com', '2021-11-06 05:34:17', 1, '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'u2QdLhRkTe', '2021-11-06 05:34:17', '2021-11-06 05:34:17');
+INSERT INTO `users` VALUES (16, 'Keara Bogan', 'wdenesik@example.com', '2021-11-06 05:34:17', 1, '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'UaI3DjNt9I', '2021-11-06 05:34:17', '2021-11-06 05:34:17');
+INSERT INTO `users` VALUES (17, 'Beth Stehr', 'macejkovic.mohamed@example.com', '2021-11-06 05:34:17', 1, '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'NaaTgbBG3S', '2021-11-06 05:34:17', '2021-11-06 05:34:17');
+INSERT INTO `users` VALUES (18, 'Bernardo Beatty', 'buster30@example.com', '2021-11-06 05:34:17', 1, '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'FunczKezTe', '2021-11-06 05:34:17', '2021-11-06 05:34:17');
+INSERT INTO `users` VALUES (19, 'Arch Baumbach', 'jacky32@example.com', '2021-11-06 05:34:17', 1, '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', '8RbvIoBoQQ', '2021-11-06 05:34:17', '2021-11-06 05:34:17');
+INSERT INTO `users` VALUES (20, 'Mr. Tomas Swift I', 'sboyer@example.org', '2021-11-06 05:34:17', 1, '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'zglB8jVZ0X', '2021-11-06 05:34:17', '2021-11-06 05:34:17');
+INSERT INTO `users` VALUES (21, 'Garrick Bergnaum', 'ghammes@example.org', '2021-11-06 05:34:17', 1, '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'kvfI9mGL4A', '2021-11-06 05:34:17', '2021-11-06 05:34:17');
+INSERT INTO `users` VALUES (22, 'Kirsten Nader', 'edgar.keebler@example.org', '2021-11-06 05:34:17', 1, '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'AjuWY5eFOg', '2021-11-06 05:34:17', '2021-11-06 05:34:17');
+INSERT INTO `users` VALUES (23, 'Dr. Major Watsica', 'ward66@example.org', '2021-11-06 05:34:17', 1, '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'mPTNpgvdX1', '2021-11-06 05:34:17', '2021-11-06 05:34:17');
+INSERT INTO `users` VALUES (24, 'Dr. Odie Feeney II', 'emile04@example.org', '2021-11-06 05:34:17', 1, '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'OwDsn0uYBw', '2021-11-06 05:34:17', '2021-11-06 05:34:17');
+INSERT INTO `users` VALUES (25, 'Jammie Rogahn', 'pierce05@example.com', '2021-11-06 05:34:17', 1, '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'BVRacyWoUU', '2021-11-06 05:34:17', '2021-11-06 05:34:17');
+INSERT INTO `users` VALUES (26, 'Gerda Adams', 'agustina.nienow@example.org', '2021-11-06 05:34:17', 1, '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'DILswTWQaE', '2021-11-06 05:34:17', '2021-11-06 05:34:17');
+INSERT INTO `users` VALUES (27, 'Izaiah Schimmel', 'trycia.parisian@example.org', '2021-11-06 05:34:17', 1, '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'o2KevBEE7B', '2021-11-06 05:34:17', '2021-11-06 05:34:17');
+INSERT INTO `users` VALUES (28, 'Nikolas Gaylord', 'lacy.beahan@example.com', '2021-11-06 05:34:17', 1, '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'AMcwFmSSln', '2021-11-06 05:34:17', '2021-11-06 05:34:17');
+INSERT INTO `users` VALUES (29, 'Prof. Geraldine Rutherford I', 'monahan.eden@example.net', '2021-11-06 05:34:17', 1, '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'QWjrt9Dg0F', '2021-11-06 05:34:17', '2021-11-06 05:34:17');
+INSERT INTO `users` VALUES (30, 'Prof. Guadalupe Murphy PhD', 'hartmann.davonte@example.org', '2021-11-06 05:34:17', 1, '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'BZEY4GItpw', '2021-11-06 05:34:17', '2021-11-06 05:34:17');
 COMMIT;
 
 SET FOREIGN_KEY_CHECKS = 1;

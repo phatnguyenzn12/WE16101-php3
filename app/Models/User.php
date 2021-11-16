@@ -14,6 +14,13 @@ class User extends Authenticatable
 
     protected $table = 'users';
 
+    public function customer_info(){
+        return $this->hasOne(CustomerInfo::class, 'user_id', 'id');
+    }
+
+    public function staff_info(){
+        return $this->hasOne(StaffInfo::class, 'user_id');
+    }
     /**
      * The attributes that are mass assignable.
      *
