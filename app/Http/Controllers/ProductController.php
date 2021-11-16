@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -50,7 +51,13 @@ class ProductController extends Controller
     }
 
     public function remove($id){
-        Product::destroy($id);
+        $model = Product::find($id);
+        if(!empty($model->image)){
+            $imgPath = str_replace('storage/', 'public/', $model->image);
+            Storage::delete($imgPath);
+        }
+        $model->delete();
+        
         return redirect(route('product.index'));
     }
 
@@ -86,6 +93,14 @@ class ProductController extends Controller
         $model = Product::find($id);
         if(!$model){
             return back();
+        }
+        if($request->hasFile('image')){
+            $oldImg = str_replace('storage/', 'public/', $model->image);
+            Storage::delete($oldImg);
+
+            $imgPath = $request->file('image')->store('public/products');
+            $imgPath = str_replace('public/', 'storage/', $imgPath);
+            $model->image = $imgPath;
         }
         $model->fill($request->all());
         $model->save();
