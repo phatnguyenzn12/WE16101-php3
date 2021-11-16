@@ -40,6 +40,7 @@
         <th>Name</th>
         <th>Price</th>
         <th>Category</th>
+        <th>Image</th>
         <th>
             <a href="">Add new</a>
         </th>
@@ -51,6 +52,9 @@
                 <td>{{$item->name}}</td>
                 <td>{{$item->price}}</td>
                 <td>{{$item->cate_id}}</td>
+                <td>
+                    <img src="{{asset($item->image)}}" width="100">
+                </td>
                 <td>
                     <a href="{{route('product.edit', ['id' => $item->id])}}">Edit</a>
                     <a href="{{route('product.remove', ['id' => $item->id])}}">Remove</a>

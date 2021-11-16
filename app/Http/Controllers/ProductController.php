@@ -61,6 +61,12 @@ class ProductController extends Controller
 
     public function saveAdd(Request $request){
         $model = new Product();
+        if($request->hasFile('image')){
+            $imgPath = $request->file('image')->store('public/products');
+            $imgPath = str_replace('public/', 'storage/', $imgPath);
+            $model->image = $imgPath;
+        }
+        
         $model->fill($request->all());
         $model->save();
         return redirect(route('product.index'));
