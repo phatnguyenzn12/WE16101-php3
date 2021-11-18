@@ -11,7 +11,7 @@
  Target Server Version : 80025
  File Encoding         : 65001
 
- Date: 16/11/2021 13:42:37
+ Date: 18/11/2021 13:20:04
 */
 
 SET NAMES utf8mb4;
@@ -110,6 +110,54 @@ INSERT INTO `migrations` VALUES (8, '2021_11_04_052245_create_table_categories',
 INSERT INTO `migrations` VALUES (9, '2021_11_04_054602_create_table_products', 2);
 INSERT INTO `migrations` VALUES (11, '2021_11_04_054953_alter_table_products_add_columns_2021-11-04', 3);
 INSERT INTO `migrations` VALUES (12, '2021_11_04_061554_alter_table_categories_rename_columns_cate_name_to_name_2021-11-04', 3);
+COMMIT;
+
+-- ----------------------------
+-- Table structure for order_details
+-- ----------------------------
+DROP TABLE IF EXISTS `order_details`;
+CREATE TABLE `order_details` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `product_id` int DEFAULT NULL,
+  `order_id` int DEFAULT NULL,
+  `quantity` int DEFAULT NULL,
+  `unit_price` int DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ----------------------------
+-- Records of order_details
+-- ----------------------------
+BEGIN;
+INSERT INTO `order_details` VALUES (1, 1, 1, 2, 3000, NULL, NULL);
+INSERT INTO `order_details` VALUES (2, 2, 1, 1, 2300, NULL, NULL);
+INSERT INTO `order_details` VALUES (3, 3, 1, 1, 1200, NULL, NULL);
+INSERT INTO `order_details` VALUES (4, 3, 2, 1, 1200, NULL, NULL);
+INSERT INTO `order_details` VALUES (5, 2, 2, 5, 500, NULL, NULL);
+COMMIT;
+
+-- ----------------------------
+-- Table structure for orders
+-- ----------------------------
+DROP TABLE IF EXISTS `orders`;
+CREATE TABLE `orders` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `customer_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `customer_address` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `customer_phone` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ----------------------------
+-- Records of orders
+-- ----------------------------
+BEGIN;
+INSERT INTO `orders` VALUES (1, 'trương văn hân', 'thường tín, hà tây', '0987654321', NULL, NULL);
+INSERT INTO `orders` VALUES (2, 'nguyễn quang phát', 'công viên cầu giấy, hà nội', '0987654322', NULL, NULL);
 COMMIT;
 
 -- ----------------------------
