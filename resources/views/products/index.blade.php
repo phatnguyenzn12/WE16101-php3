@@ -51,7 +51,9 @@
                 <td>{{($products->currentPage() - 1)*$products->perPage() + $loop->iteration}}</td>
                 <td>{{$item->name}}</td>
                 <td>{{$item->price}}</td>
-                <td>{{$item->cate_id}}</td>
+                <td>
+                    <a href="{{route('cate.detail', ['id' => $item->category->id])}}">{{$item->category->name}}</a>
+                </td>
                 <td>
                     <img src="{{asset($item->image)}}" width="100">
                 </td>

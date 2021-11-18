@@ -47,6 +47,7 @@ class ProductController extends Controller
         $searchData = compact('keyword', 'cate_id');
         $searchData['order_by'] = $rq_order_by;
         $searchData['column_names'] = $rq_column_names;
+        $products->load('category');
         return view('products.index', compact('products', 'categories', 'column_names', 'order_by', 'searchData'));
     }
 

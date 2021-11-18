@@ -1,4 +1,6 @@
 <?php
+
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
@@ -18,6 +20,10 @@ Route::prefix('san-pham')->group(function(){
     Route::get('edit/{id}', [ProductController::class, 'editForm'])->name('product.edit');
     Route::post('edit/{id}', [ProductController::class, 'saveEdit']);
 
+});
+
+Route::prefix('danh-muc')->group(function(){
+    Route::get('/{id}', [CategoryController::class, 'detail'])->name('cate.detail');
 });
 
 Route::resource("users", UserController::class);

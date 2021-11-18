@@ -17,9 +17,11 @@ class UserController extends Controller
     public function show($id)
     {
         $user = User::find($id);
-        if($user->role_id == 1){
-            dd($user->customer_info);
-        }
-        dd($user->staff_info);
+        $user->load('staff_info', 'customer_info');
+        return response()->json($user);
+        // if($user->role_id == 1){
+        //     dd($user->customer_info);
+        // }
+        // dd($user->staff_info);
     }
 }
