@@ -14,6 +14,8 @@ Route::prefix('san-pham')->group(function(){
     Route::get('remove/{id}', [ProductController::class, 'remove'])
     ->name('product.remove');
 
+    Route::get('chi-tiet/{id}', [ProductController::class, 'detail']);
+
     Route::get('add', [ProductController::class, 'addForm'])->name('product.add');
     Route::post('add', [ProductController::class, 'saveAdd']);
 

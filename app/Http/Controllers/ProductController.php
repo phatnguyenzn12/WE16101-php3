@@ -26,7 +26,7 @@ class ProductController extends Controller
         $keyword = $request->has('keyword') ? $request->keyword : "";
         $cate_id = $request->has('cate_id') ? $request->cate_id : "";
         $rq_order_by = $request->has('order_by') ? $request->order_by : 'asc';
-        $rq_column_names = $request->has('column_names') ? $request->column_names : "name";
+        $rq_column_names = $request->has('column_names') ? $request->column_names : "id";
 
         // dd($keyword, $cate_id, $rq_column_names, $rq_order_by);
         $query = Product::where('name', 'like', "%$keyword%");
@@ -47,8 +47,14 @@ class ProductController extends Controller
         $searchData = compact('keyword', 'cate_id');
         $searchData['order_by'] = $rq_order_by;
         $searchData['column_names'] = $rq_column_names;
-        $products->load('category');
+        $products->load('category', 'orders');
         return view('products.index', compact('products', 'categories', 'column_names', 'order_by', 'searchData'));
+    }
+
+    public function detail($id){
+        $product = Product::find($id);
+        $product->load('orders');
+        return response()->json($product);
     }
 
     public function remove($id){

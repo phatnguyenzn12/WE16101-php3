@@ -41,6 +41,7 @@
         <th>Price</th>
         <th>Category</th>
         <th>Image</th>
+        <th>Đã bán trong bao nhiêu hóa đơn</th>
         <th>
             <a href="">Add new</a>
         </th>
@@ -56,6 +57,9 @@
                 </td>
                 <td>
                     <img src="{{asset($item->image)}}" width="100">
+                </td>
+                <td>
+                    {{count($item->orders)}}
                 </td>
                 <td>
                     <a href="{{route('product.edit', ['id' => $item->id])}}">Edit</a>
