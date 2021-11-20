@@ -15,8 +15,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome', [
+        'name' => 'tran huu thien',
+        'age' => 30,
+        'gender' => 2,
+        'bio' => "<strong>FPT Polytechnic</strong><br><i>something</i>"
+    ]);
 });
+Route::view('demo', 'admin.layouts.main');
 
 
 
