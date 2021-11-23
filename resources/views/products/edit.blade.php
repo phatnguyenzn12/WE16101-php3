@@ -34,7 +34,6 @@
                                     <label for="">Gía</label>
                                     <input type="text" name="price" value="{{$model->price}}" class="form-control" placeholder="">
                                 </div>
-                                
                             </div>
                             <div class="col-12 mb-4">                
                                 <div class="form-group">
@@ -42,7 +41,6 @@
                                     <textarea name="detail" rows="10" class="form-control">{{$model->detail}}</textarea>
                                   </div>
                             </div>
-                            
                             <div class="col-12 d-flex justify-content-end">
                                 <br>
                                 <a href="{{route('product.index')}}" class="btn btn-danger">Hủy</a>
