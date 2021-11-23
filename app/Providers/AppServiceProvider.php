@@ -28,6 +28,7 @@ class AppServiceProvider extends ServiceProvider
     {
         Paginator::useBootstrap();
         View::composer('admin.layouts.sidebar', function($view){
+            
             $logedinUser = Auth::user();
             $menu = [];
             if($logedinUser->role_id == 2){

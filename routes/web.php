@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LoginController;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -24,13 +25,12 @@ Route::get('/', function () {
     ]);
 });
 Route::view('demo', 'admin.layouts.main');
-Route::get('login/{id}', function($id){
-    $user = User::find($id);
-    Auth::login($user);
-    
-    return 'done';
+Route::get('login', [LoginController::class, 'loginForm'])->name('login');
+Route::post('login', [LoginController::class, 'postLogin']);
+Route::any('logout', function(){
+    Auth::logout();
+    return redirect(route('login'));
 });
-
 
 
 

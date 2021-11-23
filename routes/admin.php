@@ -9,7 +9,7 @@ Route::get('danh-muc', function(){
     return "danh sach danh muc san pham";
 });
 Route::prefix('san-pham')->group(function(){
-    Route::get('/', [ProductController::class, 'index'])->name('product.index');
+    Route::get('/', [ProductController::class, 'index'])->middleware('auth')->name('product.index');
     // localhost:8000/admin/san-pham/remove/12
     Route::get('remove/{id}', [ProductController::class, 'remove'])
     ->name('product.remove');
