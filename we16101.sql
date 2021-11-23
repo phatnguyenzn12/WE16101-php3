@@ -11,7 +11,7 @@
  Target Server Version : 80025
  File Encoding         : 65001
 
- Date: 18/11/2021 13:20:04
+ Date: 23/11/2021 13:49:35
 */
 
 SET NAMES utf8mb4;
@@ -347,9 +347,9 @@ CREATE TABLE `users` (
 -- Records of users
 -- ----------------------------
 BEGIN;
-INSERT INTO `users` VALUES (1, 'Lane Murphy Jr.', 'fatima08@example.org', '2021-11-04 06:54:31', 2, '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'YcC8urCPIe', '2021-11-04 06:54:31', '2021-11-04 06:54:31');
+INSERT INTO `users` VALUES (1, 'Lane Murphy Jr.', 'fatima08@example.org', '2021-11-04 06:54:31', 2, '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'sfS2gUIep8fNpi7WRHVnc6lfHR4P4wEn0A2gkxfHsnsCHnEAlBj7ifRNv0H6', '2021-11-04 06:54:31', '2021-11-04 06:54:31');
 INSERT INTO `users` VALUES (2, 'Mr. Dudley Murazik V', 'sydni.okuneva@example.net', '2021-11-04 06:54:31', 2, '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'iShUNITjF0', '2021-11-04 06:54:31', '2021-11-04 06:54:31');
-INSERT INTO `users` VALUES (3, 'Daija Carter IV', 'florine76@example.com', '2021-11-04 06:54:31', 2, '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'IVoZ4fHkcS', '2021-11-04 06:54:31', '2021-11-04 06:54:31');
+INSERT INTO `users` VALUES (3, 'Daija Carter IV', 'florine76@example.com', '2021-11-04 06:54:31', 2, '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'G6ifOuoifvecthfuxgI2J1GMUoG3WCDHtZiXvYC4oyry97OT8coylL063gkB', '2021-11-04 06:54:31', '2021-11-04 06:54:31');
 INSERT INTO `users` VALUES (4, 'Wilford Runte', 'padberg.alyce@example.com', '2021-11-04 06:54:31', 1, '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'NMvm22Wh9k', '2021-11-04 06:54:31', '2021-11-04 06:54:31');
 INSERT INTO `users` VALUES (5, 'Mrs. Alexa Durgan Sr.', 'bschumm@example.net', '2021-11-04 06:54:31', 1, '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'Eg1x4Mjrsn', '2021-11-04 06:54:31', '2021-11-04 06:54:31');
 INSERT INTO `users` VALUES (6, 'Aric Powlowski IV', 'feil.lelah@example.net', '2021-11-04 06:54:31', 1, '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', '1umgS7bXAn', '2021-11-04 06:54:31', '2021-11-04 06:54:31');
