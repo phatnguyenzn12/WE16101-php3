@@ -74,6 +74,11 @@ class ProductController extends Controller
     }
 
     public function saveAdd(Request $request){
+        // tạo SaveProductRequest yêu cầu validate như sau
+        // phải điền tên, tên phải là duy nhất trong bảng
+        // giá phải điền, giá không được âm
+        // ảnh phải điền, phải là định dạng ảnh
+        // số lượng phải là số (nếu không điền thì thôi, nếu đã điền thì phải là số dương)
         $model = new Product();
         if($request->hasFile('image')){
             $imgPath = $request->file('image')->store('public/products');
