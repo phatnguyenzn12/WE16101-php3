@@ -25,7 +25,7 @@
         @if(Session::has('msg'))
             <p class="login-box-msg text-danger">{{Session::get('msg')}}</p>      
         @endif
-      <form action="" method="post">
+      <form action="" method="post" novalidate>
           @csrf
         <div class="input-group mb-3">
           <input type="email" name="email" class="form-control" placeholder="Email">
@@ -35,6 +35,9 @@
             </div>
           </div>
         </div>
+        @error('email')
+              <p class="text-danger">{{$message}}</p>
+        @enderror
         <div class="input-group mb-3">
           <input type="password" name="password" class="form-control" placeholder="Password">
           <div class="input-group-append">
@@ -43,6 +46,9 @@
             </div>
           </div>
         </div>
+        @error('password')
+              <p class="text-danger">{{$message}}</p>
+        @enderror
         <div class="row">
           <div class="col-8">
             <div class="icheck-primary">
