@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 
 class ProductController extends Controller
 {
@@ -101,8 +102,8 @@ class ProductController extends Controller
         return view('products.edit', compact('model', 'categories'));
     }
 
-    public function saveEdit(Request $request, $id){
-        // dd($request->name);
+    public function saveEdit(SaveProductRequest $request, $id){
+        
         $model = Product::find($id);
         if(!$model){
             return back();
@@ -120,5 +121,22 @@ class ProductController extends Controller
         return redirect(route('product.index'));
     }
 
-    // tự làm thêm/sửa/xóa cho phần danh mục "categories"
+    public function apiCreate(Request $request){
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|unique:products',
+            'price' => 'required|min:0',
+            'quantity' => 'nullable|integer|min:0'
+        ]);
+        if($validator->fails()){
+            return response()->json([
+                'success' => false,
+                'errors' => $validator->errors()
+            ]);
+        }
+
+        return response()->json([
+            'success' => true,
+            'data' => 'thêm sản phẩm thành công'
+        ]);
+    }
 }

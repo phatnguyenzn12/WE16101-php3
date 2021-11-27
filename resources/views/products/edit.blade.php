@@ -9,16 +9,31 @@
                         <div class="row">
                             <div class="col-6">
                                 <div class="form-group">
-                                  <label for="">Tên sản phẩm</label>
-                                  <input type="text" name="name" value="{{$model->name}}" class="form-control" placeholder="">
+                                    <label for="">Tên sản phẩm</label>
+                                    <input type="text" name="name" value="{{$model->name}}" class="form-control" placeholder="">
+                                    @error('name')
+                                        <span class="text-danger">{{$message}}</span>
+                                    @enderror
                                 </div>
                                 <div class="form-group">
                                     <label for="">Ảnh</label>
+                                    <div class="row">
+                                        <div class="col-6 offset-3">
+                                            <img src="{{asset($model->image)}}" alt="" class="img-thumbnail">
+                                        </div>
+                                        <br>
+                                    </div>
                                     <input type="file" name="image" class="form-control" placeholder="">
+                                    @error('image')
+                                        <span class="text-danger">{{$message}}</span>
+                                    @enderror
                                 </div>
                                 <div class="form-group">
                                     <label for="">Số lượng:</label>
                                     <input type="text" name="quantity" value="{{$model->quantity}}" class="form-control" placeholder="">
+                                    @error('quantity')
+                                        <span class="text-danger">{{$message}}</span>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-6">
@@ -33,6 +48,9 @@
                                 <div class="form-group">
                                     <label for="">Gía</label>
                                     <input type="text" name="price" value="{{$model->price}}" class="form-control" placeholder="">
+                                    @error('price')
+                                        <span class="text-danger">{{$message}}</span>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-12 mb-4">                

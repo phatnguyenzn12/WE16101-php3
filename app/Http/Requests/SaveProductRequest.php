@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class SaveProductRequest extends FormRequest
 {
@@ -23,12 +24,22 @@ class SaveProductRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'name' => 'required|unique:products',
+        
+        $requestRule =  [
+            'name' => [
+                'required',
+                Rule::unique('products')->ignore($this->id)
+            ],
             'price' => 'required|min:0',
-            'image' => 'required|mimes:jpg,jpeg,png,gif',
+            'image' => 'mimes:jpg,jpeg,png,gif',
             'quantity' => 'nullable|integer|min:0'
         ];
+        
+        if($this->id == null){
+            $requestRule['image'] = "required|" . $requestRule['image'];
+        }
+
+        return $requestRule;
     }
 
     public function messages()
