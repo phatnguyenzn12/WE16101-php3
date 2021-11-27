@@ -32,6 +32,10 @@ Route::any('logout', function(){
     return redirect(route('login'));
 });
 
+Route::any('forbidden', function(){
+    return "Bạn không có quyền truy cập vào đường dẫn này!";
+})->name('403');
+
 
 
 

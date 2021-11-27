@@ -76,6 +76,8 @@ class ProductController extends Controller
     }
 
     public function saveAdd(SaveProductRequest $request){
+        dd($_POST['name']);
+
         // tạo SaveProductRequest yêu cầu validate như sau
         // phải điền tên, tên phải là duy nhất trong bảng
         // giá phải điền, giá không được âm
