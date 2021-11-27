@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\SaveProductRequest;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -73,7 +74,7 @@ class ProductController extends Controller
         return view('products.add', compact('categories'));
     }
 
-    public function saveAdd(Request $request){
+    public function saveAdd(SaveProductRequest $request){
         // tạo SaveProductRequest yêu cầu validate như sau
         // phải điền tên, tên phải là duy nhất trong bảng
         // giá phải điền, giá không được âm

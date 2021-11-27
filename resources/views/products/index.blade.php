@@ -55,7 +55,7 @@
                         <th>Image</th>
                         <th>Đã bán trong bao nhiêu hóa đơn</th>
                         <th>
-                            <a href="">Add new</a>
+                            <a href="{{route('product.add')}}">Add new</a>
                         </th>
                     </thead>
                     <tbody>
