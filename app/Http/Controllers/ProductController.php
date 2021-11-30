@@ -76,8 +76,6 @@ class ProductController extends Controller
     }
 
     public function saveAdd(SaveProductRequest $request){
-        dd($_POST['name']);
-
         // tạo SaveProductRequest yêu cầu validate như sau
         // phải điền tên, tên phải là duy nhất trong bảng
         // giá phải điền, giá không được âm
@@ -85,8 +83,8 @@ class ProductController extends Controller
         // số lượng phải là số (nếu không điền thì thôi, nếu đã điền thì phải là số dương)
         $model = new Product();
         if($request->hasFile('image')){
-            $imgPath = $request->file('image')->store('public/products');
-            $imgPath = str_replace('public/', 'storage/', $imgPath);
+            $imgPath = $request->file('image')->store('products');
+            $imgPath = str_replace('public/', '', $imgPath);
             $model->image = $imgPath;
         }
         
@@ -111,11 +109,10 @@ class ProductController extends Controller
             return back();
         }
         if($request->hasFile('image')){
-            $oldImg = str_replace('storage/', 'public/', $model->image);
-            Storage::delete($oldImg);
+            Storage::delete($model->image);
 
-            $imgPath = $request->file('image')->store('public/products');
-            $imgPath = str_replace('public/', 'storage/', $imgPath);
+            $imgPath = $request->file('image')->store('products');
+            $imgPath = str_replace('public/', '', $imgPath);
             $model->image = $imgPath;
         }
         $model->fill($request->all());
