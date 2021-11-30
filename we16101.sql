@@ -11,7 +11,7 @@
  Target Server Version : 80025
  File Encoding         : 65001
 
- Date: 23/11/2021 13:49:35
+ Date: 30/11/2021 14:01:39
 */
 
 SET NAMES utf8mb4;
@@ -96,7 +96,7 @@ CREATE TABLE `migrations` (
   `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of migrations
@@ -110,6 +110,75 @@ INSERT INTO `migrations` VALUES (8, '2021_11_04_052245_create_table_categories',
 INSERT INTO `migrations` VALUES (9, '2021_11_04_054602_create_table_products', 2);
 INSERT INTO `migrations` VALUES (11, '2021_11_04_054953_alter_table_products_add_columns_2021-11-04', 3);
 INSERT INTO `migrations` VALUES (12, '2021_11_04_061554_alter_table_categories_rename_columns_cate_name_to_name_2021-11-04', 3);
+INSERT INTO `migrations` VALUES (13, '2021_11_30_064410_create_permission_tables', 4);
+COMMIT;
+
+-- ----------------------------
+-- Table structure for model_has_permissions
+-- ----------------------------
+DROP TABLE IF EXISTS `model_has_permissions`;
+CREATE TABLE `model_has_permissions` (
+  `permission_id` bigint unsigned NOT NULL,
+  `model_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `model_id` bigint unsigned NOT NULL,
+  PRIMARY KEY (`permission_id`,`model_id`,`model_type`),
+  KEY `model_has_permissions_model_id_model_type_index` (`model_id`,`model_type`),
+  CONSTRAINT `model_has_permissions_permission_id_foreign` FOREIGN KEY (`permission_id`) REFERENCES `permissions` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ----------------------------
+-- Records of model_has_permissions
+-- ----------------------------
+BEGIN;
+COMMIT;
+
+-- ----------------------------
+-- Table structure for model_has_roles
+-- ----------------------------
+DROP TABLE IF EXISTS `model_has_roles`;
+CREATE TABLE `model_has_roles` (
+  `role_id` bigint unsigned NOT NULL,
+  `model_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `model_id` bigint unsigned NOT NULL,
+  PRIMARY KEY (`role_id`,`model_id`,`model_type`),
+  KEY `model_has_roles_model_id_model_type_index` (`model_id`,`model_type`),
+  CONSTRAINT `model_has_roles_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ----------------------------
+-- Records of model_has_roles
+-- ----------------------------
+BEGIN;
+INSERT INTO `model_has_roles` VALUES (1, 'App\\Models\\User', 1);
+INSERT INTO `model_has_roles` VALUES (2, 'App\\Models\\User', 2);
+INSERT INTO `model_has_roles` VALUES (3, 'App\\Models\\User', 3);
+INSERT INTO `model_has_roles` VALUES (3, 'App\\Models\\User', 4);
+INSERT INTO `model_has_roles` VALUES (3, 'App\\Models\\User', 5);
+INSERT INTO `model_has_roles` VALUES (3, 'App\\Models\\User', 6);
+INSERT INTO `model_has_roles` VALUES (3, 'App\\Models\\User', 7);
+INSERT INTO `model_has_roles` VALUES (3, 'App\\Models\\User', 8);
+INSERT INTO `model_has_roles` VALUES (3, 'App\\Models\\User', 9);
+INSERT INTO `model_has_roles` VALUES (3, 'App\\Models\\User', 10);
+INSERT INTO `model_has_roles` VALUES (3, 'App\\Models\\User', 11);
+INSERT INTO `model_has_roles` VALUES (3, 'App\\Models\\User', 12);
+INSERT INTO `model_has_roles` VALUES (3, 'App\\Models\\User', 13);
+INSERT INTO `model_has_roles` VALUES (3, 'App\\Models\\User', 14);
+INSERT INTO `model_has_roles` VALUES (3, 'App\\Models\\User', 15);
+INSERT INTO `model_has_roles` VALUES (3, 'App\\Models\\User', 16);
+INSERT INTO `model_has_roles` VALUES (3, 'App\\Models\\User', 17);
+INSERT INTO `model_has_roles` VALUES (3, 'App\\Models\\User', 18);
+INSERT INTO `model_has_roles` VALUES (3, 'App\\Models\\User', 19);
+INSERT INTO `model_has_roles` VALUES (3, 'App\\Models\\User', 20);
+INSERT INTO `model_has_roles` VALUES (3, 'App\\Models\\User', 21);
+INSERT INTO `model_has_roles` VALUES (3, 'App\\Models\\User', 22);
+INSERT INTO `model_has_roles` VALUES (3, 'App\\Models\\User', 23);
+INSERT INTO `model_has_roles` VALUES (3, 'App\\Models\\User', 24);
+INSERT INTO `model_has_roles` VALUES (3, 'App\\Models\\User', 25);
+INSERT INTO `model_has_roles` VALUES (3, 'App\\Models\\User', 26);
+INSERT INTO `model_has_roles` VALUES (3, 'App\\Models\\User', 27);
+INSERT INTO `model_has_roles` VALUES (3, 'App\\Models\\User', 28);
+INSERT INTO `model_has_roles` VALUES (3, 'App\\Models\\User', 29);
+INSERT INTO `model_has_roles` VALUES (3, 'App\\Models\\User', 30);
 COMMIT;
 
 -- ----------------------------
@@ -178,6 +247,26 @@ BEGIN;
 COMMIT;
 
 -- ----------------------------
+-- Table structure for permissions
+-- ----------------------------
+DROP TABLE IF EXISTS `permissions`;
+CREATE TABLE `permissions` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `guard_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `permissions_name_guard_name_unique` (`name`,`guard_name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ----------------------------
+-- Records of permissions
+-- ----------------------------
+BEGIN;
+COMMIT;
+
+-- ----------------------------
 -- Table structure for personal_access_tokens
 -- ----------------------------
 DROP TABLE IF EXISTS `personal_access_tokens`;
@@ -217,13 +306,13 @@ CREATE TABLE `products` (
   `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `quantity` int DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=103 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=105 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of products
 -- ----------------------------
 BEGIN;
-INSERT INTO `products` VALUES (1, 'Cameron Rempel', 1016, '2021-11-04 06:54:31', '2021-11-04 06:54:31', 3, 'Suppress him! Pinch him! Off with his whiskers!\' For some minutes the whole thing very absurd, but they began running when they hit her; and the baby with some curiosity. \'What a pity it wouldn\'t.', '', 17);
+INSERT INTO `products` VALUES (1, 'Cameron Rempel', 1000, '2021-11-04 06:54:31', '2021-11-27 05:42:23', 3, 'Suppress him! Pinch him! Off with his whiskers!\' For some minutes the whole thing very absurd, but they began running when they hit her; and the baby with some curiosity. \'What a pity it wouldn\'t.', 'storage/products/GBswaoK3avmtZ6G2zWwwgUbrv9pO4vccqjWu08eX.jpg', 17);
 INSERT INTO `products` VALUES (2, 'Kieran Satterfield', 3464, '2021-11-04 06:54:31', '2021-11-04 06:54:31', 1, 'So she began: \'O Mouse, do you like the right way of speaking to it,\' she thought, \'till its ears have come, or at any rate, the Dormouse indignantly. However, he consented to go nearer till she.', '', 99);
 INSERT INTO `products` VALUES (3, 'Ms. Kariane Armstrong PhD', 5969, '2021-11-04 06:54:31', '2021-11-04 06:54:31', 1, 'Bill! the master says you\'re to go nearer till she heard was a dead silence instantly, and neither of the way--\' \'THAT generally takes some time,\' interrupted the Hatter: \'but you could only see.', '', 79);
 INSERT INTO `products` VALUES (4, 'Evie Hilpert', 7186, '2021-11-04 06:54:31', '2021-11-04 06:54:31', 4, 'I needn\'t be so stingy about it, so she began very cautiously: \'But I don\'t remember where.\' \'Well, it must make me smaller, I can reach the key; and if I fell off the mushroom, and raised herself.', '', 95);
@@ -300,6 +389,50 @@ INSERT INTO `products` VALUES (99, 'Dr. Fatima Maggio Jr.', 6101, '2021-11-04 06
 INSERT INTO `products` VALUES (100, 'Prof. Gerard Hoppe DDS', 4803, '2021-11-04 06:54:31', '2021-11-04 06:54:31', 2, 'I do it again and again.\' \'You are old,\' said the Mock Turtle replied; \'and then the different branches of Arithmetic--Ambition, Distraction, Uglification, and Derision.\' \'I never went to him,\' said.', '', 26);
 INSERT INTO `products` VALUES (101, 'san pham 1', 10000, '2021-11-11 06:49:05', '2021-11-11 06:49:05', 4, 'adsfasfasfasfasdfasdf', NULL, 100);
 INSERT INTO `products` VALUES (102, 'sp test 1', 1000, '2021-11-16 05:35:28', '2021-11-16 05:35:28', 4, 'Trong phát biểu mở đầu, Tổng thống Mỹ cho rằng cần các \"rào chắn\" để đảm bảo cạnh tranh giữa hai nước không trở thành xung đột, bất kể chủ ý hay ngoài ý muốn. Ông đồng thời bày tỏ lãnh đạo hai nền kinh tế lớn nhất thế giới sẽ có \"cuộc thảo luận thẳng thắn\".', 'storage/products/GBswaoK3avmtZ6G2zWwwgUbrv9pO4vccqjWu08eX.jpg', 100);
+INSERT INTO `products` VALUES (103, 'sdfsdfs', 24234, '2021-11-30 05:38:05', '2021-11-30 05:41:31', 4, '242342', 'products/PsClfQPCuIZavIhhMSmpUFfToQJiZIRc9m8fkH4R.jpg', 234234);
+INSERT INTO `products` VALUES (104, 'sdfsdfsdfdsf 12222', 2342342, '2021-11-30 05:39:47', '2021-11-30 05:39:47', 3, '234234234', 'products/4hTYwRMxlQvv0HOY9H7pXeFPBvhVAkqRCIDAp1CP.jpg', 234);
+COMMIT;
+
+-- ----------------------------
+-- Table structure for role_has_permissions
+-- ----------------------------
+DROP TABLE IF EXISTS `role_has_permissions`;
+CREATE TABLE `role_has_permissions` (
+  `permission_id` bigint unsigned NOT NULL,
+  `role_id` bigint unsigned NOT NULL,
+  PRIMARY KEY (`permission_id`,`role_id`),
+  KEY `role_has_permissions_role_id_foreign` (`role_id`),
+  CONSTRAINT `role_has_permissions_permission_id_foreign` FOREIGN KEY (`permission_id`) REFERENCES `permissions` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `role_has_permissions_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ----------------------------
+-- Records of role_has_permissions
+-- ----------------------------
+BEGIN;
+COMMIT;
+
+-- ----------------------------
+-- Table structure for roles
+-- ----------------------------
+DROP TABLE IF EXISTS `roles`;
+CREATE TABLE `roles` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `guard_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `roles_name_guard_name_unique` (`name`,`guard_name`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ----------------------------
+-- Records of roles
+-- ----------------------------
+BEGIN;
+INSERT INTO `roles` VALUES (1, 'admin', 'web', '2021-11-30 06:47:12', '2021-11-30 06:47:12');
+INSERT INTO `roles` VALUES (2, 'staff', 'web', '2021-11-30 06:47:18', '2021-11-30 06:47:18');
+INSERT INTO `roles` VALUES (3, 'member', 'web', '2021-11-30 06:47:23', '2021-11-30 06:47:23');
 COMMIT;
 
 -- ----------------------------
@@ -347,8 +480,8 @@ CREATE TABLE `users` (
 -- Records of users
 -- ----------------------------
 BEGIN;
-INSERT INTO `users` VALUES (1, 'Lane Murphy Jr.', 'fatima08@example.org', '2021-11-04 06:54:31', 2, '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'sfS2gUIep8fNpi7WRHVnc6lfHR4P4wEn0A2gkxfHsnsCHnEAlBj7ifRNv0H6', '2021-11-04 06:54:31', '2021-11-04 06:54:31');
-INSERT INTO `users` VALUES (2, 'Mr. Dudley Murazik V', 'sydni.okuneva@example.net', '2021-11-04 06:54:31', 2, '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'iShUNITjF0', '2021-11-04 06:54:31', '2021-11-04 06:54:31');
+INSERT INTO `users` VALUES (1, 'Lane Murphy Jr.', 'thienth@fpt.edu.vn', '2021-11-04 06:54:31', 2, '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'AvL2EZfzzLV631SPLVwk0nPSpPUWQnMJp9nRNOS1k5sD5OnPtVV2DjnoEOiy', '2021-11-04 06:54:31', '2021-11-04 06:54:31');
+INSERT INTO `users` VALUES (2, 'Mr. Dudley Murazik V', 'hantv@fpt.edu.vn', '2021-11-04 06:54:31', 2, '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'qy5Dm0aSPm86nyCyHXmSwEQcbg0mbEoe03546sLiwMeU2XVGoPh4J8zr8N4u', '2021-11-04 06:54:31', '2021-11-04 06:54:31');
 INSERT INTO `users` VALUES (3, 'Daija Carter IV', 'florine76@example.com', '2021-11-04 06:54:31', 2, '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'G6ifOuoifvecthfuxgI2J1GMUoG3WCDHtZiXvYC4oyry97OT8coylL063gkB', '2021-11-04 06:54:31', '2021-11-04 06:54:31');
 INSERT INTO `users` VALUES (4, 'Wilford Runte', 'padberg.alyce@example.com', '2021-11-04 06:54:31', 1, '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'NMvm22Wh9k', '2021-11-04 06:54:31', '2021-11-04 06:54:31');
 INSERT INTO `users` VALUES (5, 'Mrs. Alexa Durgan Sr.', 'bschumm@example.net', '2021-11-04 06:54:31', 1, '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'Eg1x4Mjrsn', '2021-11-04 06:54:31', '2021-11-04 06:54:31');
